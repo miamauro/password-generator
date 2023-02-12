@@ -36,7 +36,7 @@ function generatePassword() {
   if (!lowercaseYes && !uppercaseYes && !numbersYes && !specialcharYes) {
     alert("Your password must contain at least one character type.");
   }
-// Add chosen character types to variable called selectedCharacters.
+  // Add chosen character types to variable called selectedCharacters.
   if (lowercaseYes) {
     selectedCharacters.concat(lowercaseOpt);
   }
@@ -50,7 +50,14 @@ function generatePassword() {
     selectedCharacters.concat(specialcharOpt);
   }
 
-  
+  for (let i = 0; i < passwordLength; i++) {
+    var password = "";
+    var randomIndex = Math.floor(Math.random() * selectedCharacters.length);
+    var randomCharIndex = Math.floor(Math.random() * randomIndex.length);
+    var randomChar = randomIndex.charAt(randomCharIndex);
+    password = password + randomChar;
+  }
+  return password;
 }
 
 // Write password to the #password input
