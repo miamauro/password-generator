@@ -3,19 +3,19 @@
 var lowercaseOpt = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseOpt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numberOpt = "1234567890";
-var specialcharOpt = "!@#$%^&*";
+var specialcharOpt = "!@#$%^&*?<>~()-_=+";
 var selectedCharacters = "";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-//Ask user for the desired password length and which characters they'd like to include.
-//Store these answers for later use.
+// Ask user for the desired password length and which characters they'd like to include.
+// Store these answers for later use.
 function generatePassword() {
   var passwordLength = prompt(
     "How many characters would you like your password to be?"
   );
-  if (passwordLength < 8 || passwordLength > 128) {
+  if (passwordLength < 8 || passwordLength > 128 || passwordLength === null) {
     alert("Your password must be between 8 and 128 characters.");
     generatePassword();
   }
@@ -32,6 +32,25 @@ function generatePassword() {
   var specialcharYes = confirm(
     "Click OK to confirm the use of special characters or Cancel to exclude special characters."
   );
+
+  if (!lowercaseYes && !uppercaseYes && !numbersYes && !specialcharYes) {
+    alert("Your password must contain at least one character type.");
+  }
+// Add chosen character types to variable called selectedCharacters.
+  if (lowercaseYes) {
+    selectedCharacters.concat(lowercaseOpt);
+  }
+  if (uppercaseYes) {
+    selectedCharacters.concat(uppercaseOpt);
+  }
+  if (numbersYes) {
+    selectedCharacters.concat(numberOpt);
+  }
+  if (specialcharYes) {
+    selectedCharacters.concat(specialcharOpt);
+  }
+
+  
 }
 
 // Write password to the #password input
