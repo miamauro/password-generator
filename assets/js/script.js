@@ -38,23 +38,23 @@ function generatePassword() {
   }
   // Add chosen character types to variable called selectedCharacters.
   if (lowercaseYes) {
-    selectedCharacters.concat(lowercaseOpt);
+    selectedCharacters += lowercaseOpt;
   }
   if (uppercaseYes) {
-    selectedCharacters.concat(uppercaseOpt);
+    selectedCharacters += uppercaseOpt;
   }
   if (numbersYes) {
-    selectedCharacters.concat(numberOpt);
+    selectedCharacters += numberOpt;
   }
   if (specialcharYes) {
-    selectedCharacters.concat(specialcharOpt);
+    selectedCharacters += specialcharOpt;
   }
 
   for (let i = 0; i < passwordLength; i++) {
     var password = "";
     var randomIndex = Math.floor(Math.random() * selectedCharacters.length);
-    var randomCharIndex = Math.floor(Math.random() * randomIndex.length);
-    var randomChar = randomIndex.charAt(randomCharIndex);
+    //var randomCharIndex = Math.floor(Math.random() * randomIndex.length);
+    var randomChar = selectedCharacters.charAt(randomIndex);
     password = password + randomChar;
   }
   return password;
