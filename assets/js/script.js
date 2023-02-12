@@ -4,7 +4,7 @@ var lowercaseOpt = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseOpt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numberOpt = "1234567890";
 var specialcharOpt = "!@#$%^&*?<>~()-_=+";
-var selectedCharacters = "";
+var selectedCharacterTypes = "";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -35,29 +35,37 @@ function generatePassword() {
 
   if (!lowercaseYes && !uppercaseYes && !numbersYes && !specialcharYes) {
     alert("Your password must contain at least one character type.");
+    generatePassword();
   }
   // Add chosen character types to variable called selectedCharacters.
   if (lowercaseYes) {
-    selectedCharacters += lowercaseOpt;
+    selectedCharacterTypes += lowercaseOpt;
   }
   if (uppercaseYes) {
-    selectedCharacters += uppercaseOpt;
+    selectedCharacterTypes += uppercaseOpt;
   }
   if (numbersYes) {
-    selectedCharacters += numberOpt;
+    selectedCharacterTypes += numberOpt;
   }
   if (specialcharYes) {
-    selectedCharacters += specialcharOpt;
+    selectedCharacterTypes += specialcharOpt;
   }
 
+  console.log(selectedCharacterTypes);
+  // Select a character at random from selectedCharacters variable.
+  // Store this character into password variable.
+  // Repeat (passwordLength) times to create our randomly generated password.
+  var randomCharacters = [];
+  var finalPassword = "";
+
   for (let i = 0; i < passwordLength; i++) {
-    var password = "";
-    var randomIndex = Math.floor(Math.random() * selectedCharacters.length);
-    //var randomCharIndex = Math.floor(Math.random() * randomIndex.length);
-    var randomChar = selectedCharacters.charAt(randomIndex);
-    password = password + randomChar;
+    randomCharacters[i] =
+      selectedCharacterTypes[
+        Math.floor(Math.random() * selectedCharacterTypes.length)
+      ];
+    finalPassword += randomCharacters[i];
   }
-  return password;
+  return finalPassword;
 }
 
 // Write password to the #password input
