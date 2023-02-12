@@ -37,6 +37,7 @@ function generatePassword() {
     alert("Your password must contain at least one character type.");
     generatePassword();
   }
+
   // Add chosen character types to variable called selectedCharacters.
   if (lowercaseYes) {
     selectedCharacterTypes += lowercaseOpt;
@@ -51,7 +52,6 @@ function generatePassword() {
     selectedCharacterTypes += specialcharOpt;
   }
 
-  console.log(selectedCharacterTypes);
   // Select a character at random from selectedCharacters variable.
   // Store this character into password variable.
   // Repeat (passwordLength) times to create our randomly generated password.
@@ -65,6 +65,9 @@ function generatePassword() {
       ];
     finalPassword += randomCharacters[i];
   }
+
+  // Reset selectedCharacterTypes after for loop.
+  selectedCharacterTypes = "";
   return finalPassword;
 }
 
