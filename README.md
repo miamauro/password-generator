@@ -2,8 +2,7 @@
 
 ## Description
 
-This application allows the user to generate a random password that meets certain criteria of their choosing, providing a larger measure of security.  
-The user will begin by clicking the 'Generate Password' button, and follow a set of prompts to formulate their new password.
+This application allows the user to generate a random password that meets certain criteria of their choosing, providing a larger measure of security. The user will begin by clicking the 'Generate Password' button, and follow a set of prompts to formulate their new password.
 
 ## Usage
 
